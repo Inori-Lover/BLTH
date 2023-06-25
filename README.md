@@ -1,6 +1,6 @@
 # Fork From [andywang425/BLTH](https://github.com/andywang425/BLTH)
 
-thanks a lot for he/his wonderful work.
+thanks a lot for his/her wonderful work.
 
 ### why have this fork
 
