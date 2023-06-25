@@ -6,12 +6,12 @@
 // @author         andywang425
 // @description    优化直播观看体验
 // @description:en Improve live viewing experience
-// @updateURL      https://raw.githubusercontent.com/andywang425/BLTH/master/B%E7%AB%99%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B.user.js
-// @downloadURL    https://raw.githubusercontent.com/andywang425/BLTH/master/B%E7%AB%99%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B.user.js
-// @homepageURL    https://github.com/andywang425/BLTH
-// @supportURL     https://github.com/andywang425/BLTH/issues
+// @updateURL      https://raw.githubusercontent.com/Inori-Lover/BLTH/master/B%E7%AB%99%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B.user.js
+// @downloadURL    https://raw.githubusercontent.com/Inori-Lover/BLTH/master/B%E7%AB%99%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B.user.js
+// @homepageURL    https://github.com/Inori-Lover/BLTH
+// @supportURL     https://github.com/Inori-Lover/BLTH/issues
 // @icon           https://z4a.net/images/2022/09/15/script-icon.png
-// @copyright      2021, andywang425 (https://github.com/andywang425)
+// @copyright      2023, Inori-Lover (https://github.com/Inori-Lover)
 // @license        MIT
 // @compatible     chrome 80 or later
 // @compatible     firefox 77 or later
@@ -26,21 +26,21 @@
 // @connect        api.bilibili.com
 // @connect        api.vc.bilibili.com
 // @connect        live-trace.bilibili.com
-// @require        https://gcore.jsdelivr.net/gh/andywang425/BLTH@bca9261faa84ffd8f804c85c1a5153d3aa27a9a3/assets/js/library/Ajax-hook.min.js
+// @require        https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@bca9261faa84ffd8f804c85c1a5153d3aa27a9a3/assets/js/library/Ajax-hook.min.js
 // @require        https://gcore.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js
-// @require        https://gcore.jsdelivr.net/gh/andywang425/BLTH@4dbe95160c430bc64757580f07489bb11e766fcb/assets/js/library/bliveproxy.min.js
-// @require        https://gcore.jsdelivr.net/gh/andywang425/BLTH@8ac823ac669ad87fb39a63b6bfe02c01c0c30f89/assets/js/library/libWbiSign.min.js
-// @require        https://gcore.jsdelivr.net/gh/andywang425/BLTH@8ac823ac669ad87fb39a63b6bfe02c01c0c30f89/assets/js/library/BilibiliAPI_Mod.min.js
-// @require        https://gcore.jsdelivr.net/gh/andywang425/BLTH@4368883c643af57c07117e43785cd28adcb0cb3e/assets/js/library/layer.min.js
-// @require        https://gcore.jsdelivr.net/gh/andywang425/BLTH@f9fc6466ae78ead12ddcd2909e53fcdcc7528f78/assets/js/library/Emitter.min.js
+// @require        https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@4dbe95160c430bc64757580f07489bb11e766fcb/assets/js/library/bliveproxy.min.js
+// @require        https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@8ac823ac669ad87fb39a63b6bfe02c01c0c30f89/assets/js/library/libWbiSign.min.js
+// @require        https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@8ac823ac669ad87fb39a63b6bfe02c01c0c30f89/assets/js/library/BilibiliAPI_Mod.min.js
+// @require        https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@4368883c643af57c07117e43785cd28adcb0cb3e/assets/js/library/layer.min.js
+// @require        https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@f9fc6466ae78ead12ddcd2909e53fcdcc7528f78/assets/js/library/Emitter.min.js
 // @require        https://gcore.jsdelivr.net/npm/hotkeys-js@3.8.7/dist/hotkeys.min.js
 // @require        https://gcore.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js
-// @require        https://gcore.jsdelivr.net/gh/andywang425/BLTH@c117d15784f92f478196de0129c8e5653a9cb32e/assets/js/library/BiliveHeart.min.js
-// @require        https://gcore.jsdelivr.net/gh/andywang425/BLTH@4c2e8bc541656a8ea6d62d6055e8fd149caa4210/assets/js/library/libBilibiliToken.min.js
-// @resource       layerCss https://gcore.jsdelivr.net/gh/andywang425/BLTH@d25aa353c8c5b2d73d2217b1b43433a80100c61e/assets/css/layer.css
-// @resource       myCss    https://gcore.jsdelivr.net/gh/andywang425/BLTH@5bcc31da7fb98eeae8443ff7aec06e882b9391a8/assets/css/myCss.min.css
-// @resource       main     https://gcore.jsdelivr.net/gh/andywang425/BLTH@16ad988dce34491d8479416911a2ac4691df45c3/assets/html/main.min.html
-// @resource       eula     https://gcore.jsdelivr.net/gh/andywang425/BLTH@da3d8ce68cde57f3752fbf6cf071763c34341640/assets/html/eula.min.html
+// @require        https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@c117d15784f92f478196de0129c8e5653a9cb32e/assets/js/library/BiliveHeart.min.js
+// @require        https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@4c2e8bc541656a8ea6d62d6055e8fd149caa4210/assets/js/library/libBilibiliToken.min.js
+// @resource       layerCss https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@d25aa353c8c5b2d73d2217b1b43433a80100c61e/assets/css/layer.css
+// @resource       myCss    https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@5bcc31da7fb98eeae8443ff7aec06e882b9391a8/assets/css/myCss.min.css
+// @resource       main     https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@16ad988dce34491d8479416911a2ac4691df45c3/assets/html/main.min.html
+// @resource       eula     https://gcore.jsdelivr.net/gh/Inori-Lover/BLTH@da3d8ce68cde57f3752fbf6cf071763c34341640/assets/html/eula.min.html
 // @grant          unsafeWindow
 // @grant          GM_xmlhttpRequest
 // @grant          GM_getResourceText
