@@ -655,105 +655,107 @@
       init: () => {
         addStyle();
         SP_CONFIG.darkMode = $('html').attr('lab-style') === 'dark' ? true : false;
-        const tabList = $('.tab-list.dp-flex'),
-          ct = $('.chat-history-panel'),
-          ctWidth = ct.width(),
-          aside_area_vmHeight = $('#aside-area-vm').height(),
-          chat_control_panel_vmHeight = $('#chat-control-panel-vm').height(),
-          eleList = ['.chat-history-list', '.attention-btn-ctnr', '.live-player-mounter'];
-        tabContent = $('.tab-content');
-        logDiv = $(
-          `<li data-v-2fdbecb2="" data-v-d2be050a="" class="item dp-i-block live-skin-separate-border border-box t-center pointer live-skin-normal-text" style = 'font-weight:bold;color: #999;' id = "logDiv"><span id="logDivText">日志</span><div class="blth_num" style="display: none;" id = 'logRedPoint'>0</div></mli>`
-        );
-        let tabOffSet = 0,
-          top = 0,
-          left = 0;
-        if (eleList.some((i) => i.length === 0) || tabList.length === 0 || tabContent.length === 0) {
-          window.toast('必要页面元素缺失，强制运行（可能会看不到控制面板，提示信息）', 'error');
-        }
-        tabList.append(logDiv);
-        JQlogRedPoint = $('#logRedPoint');
-        let tabListItems = [];
-        for (let i = 0; i < tabList.children('li').length; i++) {
-          tabListItems.push(tabList.children('li')[i]);
-        }
-        logIndex = myopen({
-          type: 1,
-          title: false,
-          offset: [String(top) + 'px', String(left) + 'px'],
-          closeBtn: 0,
-          shade: 0,
-          zIndex: 2000,
-          fixed: false,
-          area: [String(ctWidth) + 'px', String(aside_area_vmHeight - chat_control_panel_vmHeight) + 'px'], //宽高
-          anim: -1,
-          isOutAnim: false,
-          resize: false,
-          content: '<div id = "menuWindow"></div>',
-          success: () => {
-            layerLogWindow = $('#layui-layer1 .layui-layer-content');
-            JQmenuWindow = $('#menuWindow');
-            let logDivText = $('#logDivText');
-            layerLogWindow.on('DOMNodeInserted', function () {
-              layerLogWindow_Height = $(this).height();
-              layerLogWindow_ScrollHeight = $(this)[0].scrollHeight;
-              if (layerLogWindow_ScrollHeight > layerLogWindow_Height) {
-                layerLogWindow.scrollTop(layerLogWindow.prop('scrollHeight'));
-                $(this).off('DOMNodeInserted');
-              }
-            });
-            layerLogWindow.scroll(function () {
-              layerLogWindow_Height = $(this).height();
-              layerLogWindow_ScrollHeight = $(this)[0].scrollHeight;
-              layerLogWindow_ScrollTop = $(this)[0].scrollTop;
-              layerLogWindow_ScrollY = layerLogWindow_ScrollTop + layerLogWindow_Height + 1;
-              if (layerLogWindow_ScrollY < layerLogWindow_ScrollHeight) logDivText.text('日志🚀');
-              else logDivText.text('日志');
-            });
-          },
-        });
-        layer.style(logIndex, {
-          'box-shadow': 'none',
-          display: 'none',
-          'background-color': SP_CONFIG.darkMode ? '#1c1c1c' : '#f2f3f5',
-        });
-        for (const i of tabListItems) {
-          let JQi = $(i);
-          JQi.click(() => {
-            for (const item of tabListItems) {
-              let JQitem = $(item);
-              if (item != i) {
-                if (JQitem.css('color') !== 'rgb(153, 153, 153)') JQitem.css('color', '#999');
-                if (JQitem.hasClass('live-skin-main-text')) JQitem.removeClass('live-skin-main-text');
-                if (JQitem.hasClass('active')) JQitem.removeClass('active');
-                if (!JQitem.hasClass('live-skin-normal-text')) JQitem.addClass('live-skin-normal-text');
-              } else {
-                if (JQitem.css('color') !== 'rgb(51, 51, 51)') JQi.css('color', '#333');
-                if (!JQitem.hasClass('live-skin-main-text')) JQi.addClass('live-skin-main-text');
-                if (!JQitem.hasClass('active')) JQi.addClass('active');
-                if (JQitem.hasClass('live-skin-normal-text')) JQi.removeClass('live-skin-normal-text');
-              }
-            }
-            if (JQi.attr('id') === 'logDiv') {
-              if (!tabOffSet) {
-                tabOffSet = $('.tab-content').offset();
-                top = tabOffSet.top;
-                left = tabOffSet.left;
-                layer.style(logIndex, {
-                  top: String(top) + 'px',
-                  left: String(left) + 'px',
-                });
-              }
-              layer.style(logIndex, {
-                display: 'block',
-              });
-            } else {
-              layer.style(logIndex, {
-                display: 'none',
-              });
-            }
-          });
-        }
+        // >>>>>>>>>>>> dont add log panel >>>>>>>>>>>>
+        // const tabList = $('.tab-list.dp-flex'),
+        //   ct = $('.chat-history-panel'),
+        //   ctWidth = ct.width(),
+        //   aside_area_vmHeight = $('#aside-area-vm').height(),
+        //   chat_control_panel_vmHeight = $('#chat-control-panel-vm').height(),
+        //   eleList = ['.chat-history-list', '.attention-btn-ctnr', '.live-player-mounter'];
+        // tabContent = $('.tab-content');
+        // logDiv = $(
+        //   `<li data-v-2fdbecb2="" data-v-d2be050a="" class="item dp-i-block live-skin-separate-border border-box t-center pointer live-skin-normal-text" style = 'font-weight:bold;color: #999;' id = "logDiv"><span id="logDivText">日志</span><div class="blth_num" style="display: none;" id = 'logRedPoint'>0</div></mli>`
+        // );
+        // let tabOffSet = 0,
+        //   top = 0,
+        //   left = 0;
+        // if (eleList.some((i) => i.length === 0) || tabList.length === 0 || tabContent.length === 0) {
+        //   window.toast('必要页面元素缺失，强制运行（可能会看不到控制面板，提示信息）', 'error');
+        // }
+        // tabList.append(logDiv);
+        // JQlogRedPoint = $('#logRedPoint');
+        // let tabListItems = [];
+        // for (let i = 0; i < tabList.children('li').length; i++) {
+        //   tabListItems.push(tabList.children('li')[i]);
+        // }
+        // logIndex = myopen({
+        //   type: 1,
+        //   title: false,
+        //   offset: [String(top) + 'px', String(left) + 'px'],
+        //   closeBtn: 0,
+        //   shade: 0,
+        //   zIndex: 2000,
+        //   fixed: false,
+        //   area: [String(ctWidth) + 'px', String(aside_area_vmHeight - chat_control_panel_vmHeight) + 'px'], //宽高
+        //   anim: -1,
+        //   isOutAnim: false,
+        //   resize: false,
+        //   content: '<div id = "menuWindow"></div>',
+        //   success: () => {
+        //     layerLogWindow = $('#layui-layer1 .layui-layer-content');
+        //     JQmenuWindow = $('#menuWindow');
+        //     let logDivText = $('#logDivText');
+        //     layerLogWindow.on('DOMNodeInserted', function () {
+        //       layerLogWindow_Height = $(this).height();
+        //       layerLogWindow_ScrollHeight = $(this)[0].scrollHeight;
+        //       if (layerLogWindow_ScrollHeight > layerLogWindow_Height) {
+        //         layerLogWindow.scrollTop(layerLogWindow.prop('scrollHeight'));
+        //         $(this).off('DOMNodeInserted');
+        //       }
+        //     });
+        //     layerLogWindow.scroll(function () {
+        //       layerLogWindow_Height = $(this).height();
+        //       layerLogWindow_ScrollHeight = $(this)[0].scrollHeight;
+        //       layerLogWindow_ScrollTop = $(this)[0].scrollTop;
+        //       layerLogWindow_ScrollY = layerLogWindow_ScrollTop + layerLogWindow_Height + 1;
+        //       if (layerLogWindow_ScrollY < layerLogWindow_ScrollHeight) logDivText.text('日志🚀');
+        //       else logDivText.text('日志');
+        //     });
+        //   },
+        // });
+        // layer.style(logIndex, {
+        //   'box-shadow': 'none',
+        //   display: 'none',
+        //   'background-color': SP_CONFIG.darkMode ? '#1c1c1c' : '#f2f3f5',
+        // });
+        // for (const i of tabListItems) {
+        //   let JQi = $(i);
+        //   JQi.click(() => {
+        //     for (const item of tabListItems) {
+        //       let JQitem = $(item);
+        //       if (item != i) {
+        //         if (JQitem.css('color') !== 'rgb(153, 153, 153)') JQitem.css('color', '#999');
+        //         if (JQitem.hasClass('live-skin-main-text')) JQitem.removeClass('live-skin-main-text');
+        //         if (JQitem.hasClass('active')) JQitem.removeClass('active');
+        //         if (!JQitem.hasClass('live-skin-normal-text')) JQitem.addClass('live-skin-normal-text');
+        //       } else {
+        //         if (JQitem.css('color') !== 'rgb(51, 51, 51)') JQi.css('color', '#333');
+        //         if (!JQitem.hasClass('live-skin-main-text')) JQi.addClass('live-skin-main-text');
+        //         if (!JQitem.hasClass('active')) JQi.addClass('active');
+        //         if (JQitem.hasClass('live-skin-normal-text')) JQi.removeClass('live-skin-normal-text');
+        //       }
+        //     }
+        //     if (JQi.attr('id') === 'logDiv') {
+        //       if (!tabOffSet) {
+        //         tabOffSet = $('.tab-content').offset();
+        //         top = tabOffSet.top;
+        //         left = tabOffSet.left;
+        //         layer.style(logIndex, {
+        //           top: String(top) + 'px',
+        //           left: String(left) + 'px',
+        //         });
+        //       }
+        //       layer.style(logIndex, {
+        //         display: 'block',
+        //       });
+        //     } else {
+        //       layer.style(logIndex, {
+        //         display: 'none',
+        //       });
+        //     }
+        //   });
+        // }
+        // <<<<<<<<<<<< dont add log panel <<<<<<<<<<<<
         let p1 = $.Deferred(),
           p2 = $.Deferred(),
           p3 = $.Deferred();
@@ -1902,30 +1904,30 @@
       },
       chatLog: function (text, _type = 'info') {
         // 自定义提示
-        let div = $("<div class='chatLogDiv'>"),
-          msg = $("<div class='chatLogMsg'>"),
-          myDate = new Date();
-        msg.html(text);
-        div.text(myDate.toLocaleString());
-        div.append(msg);
-        switch (_type) {
-          case 'warning':
-            div.addClass('chatLogWarning');
-            break;
-          case 'success':
-            div.addClass('chatLogSuccess');
-            break;
-          case 'error':
-            div.addClass('chatLogError');
-            break;
-          case 'prize':
-            div.addClass('chatLogWinPrize');
-            break;
-          default:
-            div.addClass('chatLogDefault');
-        }
-        JQmenuWindow.append(div);
-        if (layerLogWindow_ScrollY >= layerLogWindow_ScrollHeight) layerLogWindow.scrollTop(layerLogWindow.prop('scrollHeight'));
+        // let div = $("<div class='chatLogDiv'>"),
+        //   msg = $("<div class='chatLogMsg'>"),
+        //   myDate = new Date();
+        // msg.html(text);
+        // div.text(myDate.toLocaleString());
+        // div.append(msg);
+        // switch (_type) {
+        //   case 'warning':
+        //     div.addClass('chatLogWarning');
+        //     break;
+        //   case 'success':
+        //     div.addClass('chatLogSuccess');
+        //     break;
+        //   case 'error':
+        //     div.addClass('chatLogError');
+        //     break;
+        //   case 'prize':
+        //     div.addClass('chatLogWinPrize');
+        //     break;
+        //   default:
+        //     div.addClass('chatLogDefault');
+        // }
+        // JQmenuWindow.append(div);
+        // if (layerLogWindow_ScrollY >= layerLogWindow_ScrollHeight) layerLogWindow.scrollTop(layerLogWindow.prop('scrollHeight'));
         MYDEBUG('chatLog', text);
       },
       GroupSign: {
