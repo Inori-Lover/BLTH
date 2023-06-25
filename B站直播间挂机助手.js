@@ -6,8 +6,8 @@
 // @author         andywang425
 // @description    优化直播观看体验
 // @description:en Improve live viewing experience
-// @updateURL      https://raw.githubusercontent.com/Inori-Lover/BLTH/master/B%E7%AB%99%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B.user.js
-// @downloadURL    https://raw.githubusercontent.com/Inori-Lover/BLTH/master/B%E7%AB%99%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B.user.js
+// @updateURL      https://raw.githubusercontent.com/Inori-Lover/BLTH/master/B%E7%AB%99%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B.js
+// @downloadURL    https://raw.githubusercontent.com/Inori-Lover/BLTH/master/B%E7%AB%99%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B.js
 // @homepageURL    https://github.com/Inori-Lover/BLTH
 // @supportURL     https://github.com/Inori-Lover/BLTH/issues
 // @icon           https://z4a.net/images/2022/09/15/script-icon.png
